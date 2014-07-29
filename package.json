@@ -1,0 +1,20 @@
+{
+  "name": "dacos-auth-driver",
+  "version": "0.0.1",
+  "description": "driver do sistema de autenticação do sistema da diretoria academica DAC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dac-os/auth-driver.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dac-os/auth-driver/issues"
+  },
+  "homepage": "https://github.com/dac-os/auth-driver",
+  "dependencies": {
+    "async": "^0.9.0",
+    "request": "^2.39.0",
+    "verror": "^1.4.0"
+  }
+}
