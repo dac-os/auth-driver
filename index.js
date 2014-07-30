@@ -21,14 +21,14 @@ exports.session = function authSession() {
     }, function (error, res, body) {
       var user;
       if (error) {
-        return next(error);
+        return next();
       }
       try {
         user = JSON.parse(body);
         request.session = user;
         return next();
       } catch (error) {
-        return next(error);
+        return next();
       }
     });
   };
