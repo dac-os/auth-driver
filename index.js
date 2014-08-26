@@ -17,19 +17,10 @@ exports.session = function authSession() {
     token = request.get('csrf-token');
     httpRequest({
       'url'     : uri + '/users/me',
-      'headers' : {'csrf-token' : token}
+      'headers' : {'csrf-token' : token},
+      'json'    : true
     }, function (error, res, body) {
-      var user;
-      if (error) {
-        return next();
-      }
-      try {
-        user = JSON.parse(body);
-        request.session = user;
-        return next();
-      } catch (error) {
-        return next();
-      }
+      next(error, body);
     });
   };
 };
