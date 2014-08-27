@@ -14,14 +14,14 @@ exports.session = function authSession() {
 
   return function authSessionMiddleware(request, response, next) {
     var token;
-    token = request.get('csrf-token');
+    token = request.get('csrf-token') || 'undefined';
     httpRequest({
       'url'     : uri + '/users/me',
       'headers' : {'csrf-token' : token},
       'json'    : true
     }, function (error, res, body) {
-      next(error, body);
       request.session = body;
+      next(error, body);
     });
   };
 };
