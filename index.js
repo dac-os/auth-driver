@@ -32,7 +32,7 @@ exports.can = function authCan(permission) {
   return function authPermissionMiddleware(request, response, next) {
     var session;
     session = request.session;
-    if (!session || session.profile.permissions.lastIndexOf(permission) === -1) {
+    if (!session || !session.profile  || !session.profile.permissions || session.profile.permissions.lastIndexOf(permission) === -1) {
       return response.status(403).end();
     }
     return next();
