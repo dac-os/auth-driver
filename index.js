@@ -21,6 +21,7 @@ exports.session = function authSession() {
       'json'    : true
     }, function (error, res, body) {
       next(error, body);
+      request.session = body;
     });
   };
 };
